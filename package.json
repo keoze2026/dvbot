@@ -1,0 +1,32 @@
+{
+  "name": "dvnet-telegram-bot",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Telegram bot that hands out DV.net crypto deposit addresses and checkout links, and relays signed payment webhooks to Telegram and email.",
+  "main": "dist/index.js",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit",
+    "start": "node dist/index.js",
+    "dev": "tsx watch index.ts",
+    "pm2:start": "pm2 start ecosystem.config.js",
+    "pm2:restart": "pm2 restart dvnet-bot",
+    "pm2:stop": "pm2 stop dvnet-bot",
+    "pm2:logs": "pm2 logs dvnet-bot"
+  },
+  "dependencies": {
+    "dotenv": "^16.6.1",
+    "grammy": "^1.46.0",
+    "nodemailer": "^10.0.10",
+    "qrcode": "^1.5.4"
+  },
+  "devDependencies": {
+    "@types/node": "^22.20.3",
+    "@types/qrcode": "^1.5.6",
+    "tsx": "^4.23.13",
+    "typescript": "^5.9.3"
+  }
+}
