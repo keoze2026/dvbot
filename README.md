@@ -54,19 +54,19 @@ pm2 stop dvnet-bot        # actually stops the process (/stop in Telegram only p
 
 ### Expose the webhook over HTTPS
 
-DV.net must reach the receiver over HTTPS. Put nginx in front of the port from `.env` (`WEBHOOK_PORT`, default 8080) and let certbot handle the certificate:
+DV.net must reach the receiver over HTTPS. Put nginx in front of the port from `.env` (`WEBHOOK_PORT`, default 8090) and let certbot handle the certificate:
 
 ```nginx
 server {
     server_name bot.example.com;
 
     location /dvnet/webhook {          # = WEBHOOK_PATH
-        proxy_pass http://127.0.0.1:8080;
+        proxy_pass http://127.0.0.1:8090;
         proxy_set_header Host $host;
         proxy_set_header X-Forwarded-For $remote_addr;
     }
     location /health {
-        proxy_pass http://127.0.0.1:8080;
+        proxy_pass http://127.0.0.1:8090;
     }
 }
 ```

@@ -149,7 +149,7 @@ const config = {
     windowMs: envNumber("RATE_LIMIT_WINDOW_SECONDS", 60) * 1000,
   },
   webhook: {
-    port: envNumber("WEBHOOK_PORT", 8080),
+    port: envNumber("WEBHOOK_PORT", 8090),
     // DV.net POSTs payment events here. Put a hard-to-guess secret in the path
     // too (e.g. /dvnet/webhook/9f3a...) - the signature is the real auth, the
     // path just keeps scanners from finding the endpoint.
